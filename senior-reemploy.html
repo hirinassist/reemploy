@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>中高齡再就業｜友善就業計畫</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: #fff;
+  color: #1a1a2e;
+  overflow-x: hidden;
+  max-width: 480px;
+  margin: 0 auto;
+}
+img { display: block; max-width: 100%; height: auto; }
+
+:root {
+  --teal:      #0f7b72;
+  --teal-mid:  #0a9e93;
+  --teal-lite: #e0f5f3;
+  --gold:      #e8a020;
+  --gold-lite: #fff8ec;
+  --deep:      #0b3c38;
+  --text:      #1a2e2c;
+  --text-soft: #4a7068;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--deep);
+  color: rgba(255,255,255,.85);
+  text-align: center;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: 9px 16px;
+}
+
+/* ── HEADER ── */
+header {
+  background: linear-gradient(150deg, var(--teal-mid) 0%, var(--teal) 50%, var(--deep) 100%);
+  padding: 34px 22px 38px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  top: -70px; right: -50px;
+  width: 220px; height: 220px;
+  background: rgba(255,255,255,.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -40px;
+  width: 180px; height: 180px;
+  background: rgba(255,255,255,.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.header-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.header-title {
+  color: #fff;
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: .04em;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.header-title span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.8);
+  margin-top: 4px;
+}
+.header-sub {
+  color: rgba(255,255,255,.85);
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+/* ── CTA ── */
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  background: var(--gold);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+  padding: 15px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(232,160,32,.45);
+  transition: transform .18s;
+  cursor: pointer;
+  border: none;
+}
+.cta-btn:active { transform: scale(.97); }
+.cta-btn.light {
+  background: #fff;
+  color: var(--teal);
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+}
+.line-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+@keyframes pulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(232,160,32,.45); }
+  50%      { box-shadow: 0 4px 34px rgba(232,160,32,.8); }
+}
+.cta-btn.pulse { animation: pulse 2s ease-in-out infinite; }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal-lite), var(--teal-mid), var(--gold), var(--teal-lite));
+  border: none;
+}
+
+/* ── AD IMAGE ── */
+.ad-wrap { width: 100%; background: var(--teal-lite); line-height: 0; }
+.ad-wrap img { width: 100%; height: auto; }
+
+/* ── SECTION ── */
+section { padding: 36px 20px; }
+.sec-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: .03em;
+  line-height: 1.4;
+}
+.sec-title em { color: var(--teal-mid); font-style: normal; }
+.sec-sub {
+  font-size: .84rem;
+  color: var(--text-soft);
+  text-align: center;
+  margin-bottom: 22px;
+  line-height: 1.65;
+}
+
+/* ── BENEFITS ── */
+.benefits { background: #fff; }
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.b-card {
+  background: var(--teal-lite);
+  border-radius: 16px;
+  padding: 20px 12px 18px;
+  text-align: center;
+  border: 1.5px solid rgba(15,123,114,.1);
+}
+.b-icon { font-size: 1.9rem; display: block; margin-bottom: 8px; }
+.b-name { font-size: .88rem; font-weight: 900; color: var(--teal); display: block; margin-bottom: 4px; }
+.b-desc { font-size: .78rem; color: var(--text-soft); line-height: 1.55; }
+
+/* ── WHO ── */
+.who {
+  background: linear-gradient(150deg, var(--teal) 0%, var(--deep) 100%);
+  color: #fff;
+}
+.who .sec-title { color: #fff; }
+.who .sec-sub   { color: rgba(255,255,255,.72); }
+.who-list { list-style: none; }
+.who-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  font-size: .93rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.who-list li:last-child { border-bottom: none; }
+.check {
+  width: 22px; height: 22px; min-width: 22px;
+  background: rgba(255,255,255,.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; font-weight: 900;
+  margin-top: 2px;
+}
+
+/* ── STEPS ── */
+.steps { background: var(--gold-lite); }
+.steps-col { display: flex; flex-direction: column; }
+.step-row  { display: flex; align-items: center; gap: 14px; }
+.step-num {
+  width: 42px; height: 42px; min-width: 42px;
+  background: linear-gradient(135deg, var(--teal-mid), var(--teal));
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.1rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 10px rgba(15,123,114,.3);
+}
+.step-title { font-size: .93rem; font-weight: 700; color: var(--text); }
+.step-hint  { font-size: .77rem; color: var(--text-soft); margin-top: 2px; }
+.step-line  {
+  width: 2px; height: 20px;
+  background: linear-gradient(to bottom, var(--teal-mid), rgba(15,123,114,.1));
+  margin-left: 20px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep);
+  padding: 36px 20px 48px;
+  text-align: center;
+}
+.f-title {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+  letter-spacing: .04em;
+}
+.f-sub {
+  color: rgba(255,255,255,.58);
+  font-size: .84rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.footer-note {
+  font-size: .7rem;
+  color: rgba(255,255,255,.22);
+  margin-top: 22px;
+  letter-spacing: .05em;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">📢 友善就業計畫開放申請中・名額有限</div>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <span class="header-badge">政府支持・友善職場</span>
+  <h1 class="header-title">
+    中高齡再就業
+    <span>友善就業計畫</span>
+  </h1>
+  <p class="header-sub">不限年齡・專員為您量身配對<br>重返職場，從這裡開始</p>
+  <a href="https://line.me/ti/p/QQ8ZfKr694" target="_blank" class="cta-btn pulse">
+    <svg class="line-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#06C755"/><path d="M20 10.8C20 7.1 16.4 4 12 4S4 7.1 4 10.8c0 3.3 2.9 6.1 6.9 6.6.3.1.7.2.8.5.1.3 0 .6-.1.9l-.1.8c0 .2-.2.9.8.5 1-.4 5.4-3.2 7.4-5.5.9-1 1.3-2.1 1.3-3.3z" fill="#fff"/></svg>
+    立即加入 LINE 諮詢
+  </a>
+</header>
+
+<hr class="divider">
+
+<!-- ════ AD IMAGE ════ -->
+<div class="ad-wrap">
+  <img src="https://i.ibb.co/gqsC99M/photo-2026-03-12-17-24-54.jpg" alt="中高齡再就業友善就業計畫">
+</div>
+
+<hr class="divider">
+
+<!-- ════ BENEFITS ════ -->
+<section class="benefits">
+  <h2 class="sec-title">計畫提供<em>四大支持</em></h2>
+  <p class="sec-sub">專業團隊陪伴，讓再就業更安心</p>
+  <div class="benefits-grid">
+    <div class="b-card">
+      <span class="b-icon">🤝</span>
+      <span class="b-name">友善媒合</span>
+      <span class="b-desc">依年齡與經歷<br>精準配對職缺</span>
+    </div>
+    <div class="b-card">
+      <span class="b-icon">⏰</span>
+      <span class="b-name">彈性工時</span>
+      <span class="b-desc">多種班別選擇<br>配合生活節奏</span>
+    </div>
+    <div class="b-card">
+      <span class="b-icon">📋</span>
+      <span class="b-name">多元職缺</span>
+      <span class="b-desc">橫跨各產業<br>選擇豐富多元</span>
+    </div>
+    <div class="b-card">
+      <span class="b-icon">🎓</span>
+      <span class="b-name">全程陪伴</span>
+      <span class="b-desc">諮詢到上工<br>專員全力支持</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHO ════ -->
+<section class="who">
+  <h2 class="sec-title">哪些人可以申請？</h2>
+  <p class="sec-sub">重返職場的第一步，我們陪您走</p>
+  <ul class="who-list">
+    <li><span class="check">✓</span>45 歲以上，希望重返職場者</li>
+    <li><span class="check">✓</span>長期待業，需要重新出發者</li>
+    <li><span class="check">✓</span>需兼顧家庭，尋求彈性就業者</li>
+    <li><span class="check">✓</span>想轉換跑道，尋求新方向者</li>
+  </ul>
+</section>
+
+<!-- ════ STEPS ════ -->
+<section class="steps">
+  <h2 class="sec-title">申請流程<em>超簡單</em></h2>
+  <p class="sec-sub">三分鐘諮詢，專員立即為您配對</p>
+  <div class="steps-col">
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">加入 LINE，聯繫專員</div>
+        <div class="step-hint">直接與媒合顧問對話</div>
+      </div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">了解您的需求與條件</div>
+        <div class="step-hint">工時、產業、薪資完整說明</div>
+      </div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">推薦最適合的職缺</div>
+        <div class="step-hint">依您的經歷精準配對</div>
+      </div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">確認面試・順利上工</div>
+        <div class="step-hint">全程陪伴至穩定就業</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <p class="f-title">立即申請友善就業計畫</p>
+  <p class="f-sub">不限年齡・免費服務<br>專員為您找到最適合的職缺</p>
+  <a href="https://line.me/ti/p/QQ8ZfKr694" target="_blank" class="cta-btn pulse">
+    <svg class="line-icon" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#06C755"/><path d="M20 10.8C20 7.1 16.4 4 12 4S4 7.1 4 10.8c0 3.3 2.9 6.1 6.9 6.6.3.1.7.2.8.5.1.3 0 .6-.1.9l-.1.8c0 .2-.2.9.8.5 1-.4 5.4-3.2 7.4-5.5.9-1 1.3-2.1 1.3-3.3z" fill="#fff"/></svg>
+    立即加入 LINE 諮詢
+  </a>
+  <p class="footer-note">© 中高齡再就業｜友善就業計畫</p>
+</footer>
+
+</body>
+</html>
